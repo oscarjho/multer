@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- MATERIALIZE -->
+  <link rel="stylesheet" href="./req/materialize.min.css">
+
+  <title>Node File Uploads</title>
+</head>
+<body>
+  
+  <!-- CONTAINER -->
+  <div class="container">
+    
+    <h1>File Upload</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      
+        <div class="row">
+            <div class="input-field col s12">
+                <input value="" id="title" type="text" class="validate" name="title">
+                <label class="active" for="title">Title</label>
+            </div>
+          </div>
+
+          <div class="row">
+              <div class="input-field col s12">
+                <textarea id="description" class="materialize-textarea" name="description"></textarea>
+                  <label for="description">Description</label>
+              </div>
+            </div>
+
+          <br>
+
+
+      <%= typeof filename != 'undefined' ? filename : '' %>
+      <%= typeof msg != 'undefined' ? msg : '' %>
+      <div class="file-field input-field">
+        <div class="btn grey">
+          <span>File</span>
+          <input type="file" name="myImage">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text" placeholder="Upload one file">
+        </div>
+      </div>
+      <button type="submit" class="btn">Submit</button>
+    </form>
+    <br>
+    <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img">
+  </div>
+
+
+  <!-- JQUERY -->
+  <script src="./req/jquery-3.4.0.min.js"></script>
+  <!-- MATERIALIZE -->
+  <script src="./req/materialize.min.js"></script>
+</body>
+</html>
